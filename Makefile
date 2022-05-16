@@ -13,8 +13,9 @@ learn:
 	rm -rf a.out*
 
 predict:
+	python3 predict/main.py $(TRAINEDFILE)
 
 vizualize:
-	python3 vizualize/vizualize.py $(DATAFILE) < $(TRAINEDFILE)
+	python3 vizualize/main.py $(DATAFILE) < $(TRAINEDFILE)
 
 .PHONY: learn predict vizualize

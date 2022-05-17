@@ -1,15 +1,15 @@
 NAME = linear_regression
 
 DATAFILE = data.csv
-TRAINEDFILE = trained.sps
+TRAINEDFILE = trained.ssv
 
-CFLAG = -Wall -Wextra -Werror -fsanitize=address -g
+CFLAG = -Wall -Wextra -Werror -Ofast
 
 all: learn vizualize
 
 learn:
 	gcc $(CFLAG) learn/main.c
-	./a.out $(DATAFILE) $(TRAINEDFILE)
+	time ./a.out $(DATAFILE) $(TRAINEDFILE)
 	rm -rf a.out*
 
 predict:

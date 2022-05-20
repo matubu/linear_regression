@@ -63,6 +63,8 @@ void	train(t_data *d) {
 }
 
 int main(int argc, char **argv) {
+	puts("### \033[1;91mLaunching learning\033[0m ###");
+
 	if (argc != 3)
 		die("usage: ./linear_regression [data-file] [trained-file]");
 
@@ -88,6 +90,8 @@ int main(int argc, char **argv) {
 	print_csv(csv);
 
 	train(&data);
+
+	puts("### \033[1;91mLearning completed\033[0m ###");
 
 	printf("NORM [ %f, %f ]\n", data.a, data.b);
 

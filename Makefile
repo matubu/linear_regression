@@ -1,21 +1,23 @@
 NAME = linear_regression
 
-DATAFILE = data.csv
+DATAFILE = test.csv
 TRAINEDFILE = trained.ssv
 
 CFLAG = -Wall -Wextra -Werror -Ofast
 
-all: learn vizualize
+vizualize: learn
+	@python3 vizualize/main.py $(DATAFILE) < $(TRAINEDFILE)
 
 learn:
-	gcc $(CFLAG) learn/main.c
+	@gcc $(CFLAG) learn/main.c
 	time ./a.out $(DATAFILE) $(TRAINEDFILE)
-	rm -rf a.out*
+	@rm -rf a.out*
+	@make mse
 
-predict:
+predict: learn
 	python3 predict/main.py $(TRAINEDFILE)
 
-vizualize:
-	python3 vizualize/main.py $(DATAFILE) < $(TRAINEDFILE)
+mse:
+	@python3 mse/main.py $(DATAFILE) < $(TRAINEDFILE)
 
-.PHONY: learn predict vizualize
+.PHONY: vizualize learn predict mse

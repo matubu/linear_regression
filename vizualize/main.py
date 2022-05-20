@@ -1,6 +1,8 @@
 import sys
 import matplotlib.pyplot as plt
 
+print("### \033[1;91mLaunching visualization\033[0m ###")
+
 a, b = map(float, input().split())
 
 lines = open(sys.argv[1], "r").read().splitlines()
@@ -12,11 +14,6 @@ y = list(map(lambda n: n[1], csv))
 
 minX = min(x)
 maxX = max(x)
-
-print(a, b)
-print(lines)
-print(csv)
-print(minX, maxX)
 
 plt.plot(
 	[

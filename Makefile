@@ -1,6 +1,6 @@
 NAME = linear_regression
 
-DATAFILE = test.csv
+DATAFILE = data.csv
 TRAINEDFILE = trained.ssv
 
 CFLAG = -Wall -Wextra -Werror -Ofast
